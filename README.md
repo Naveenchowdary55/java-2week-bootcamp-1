@@ -28,6 +28,11 @@ one command (see below). We'll demystify the tooling in Phase 2.
 
 ## One-time setup (Day 0 — do this before Day 1)
 
+> **New to all of this?** Follow **[INSTALL.md](INSTALL.md)** instead — it's
+> the same setup as a click-by-click guide (JDK, VS Code, the Java extension
+> pack, running your first test) with a watch-along video and troubleshooting
+> table. Come back here for step 3 (getting your own repo).
+
 1. **Install a JDK (version 17 or newer).** Get it from https://adoptium.net/
    Verify in a terminal:
    ```bash
