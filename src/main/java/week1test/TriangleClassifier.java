@@ -39,7 +39,21 @@ public class TriangleClassifier {
      * @return "EQUILATERAL", "ISOSCELES", "SCALENE", or "INVALID"
      */
     public static String kind(int a, int b, int c) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (a <= 0 || b <= 0 || c <= 0) {
+            return "INVALID";
+        }
+        if (a + b <= c || a + c <= b || b + c <= a) {
+            return "INVALID";
+        }
+        if (a == b && b == c) {
+            return "EQUILATERAL";
+        }
+        if (a == b || a == c || b == c) {
+            return "ISOSCELES";
+        }
+        return "SCALENE";
+
+        
     }
 
     /**
@@ -63,6 +77,14 @@ public class TriangleClassifier {
      * @return true if the sides form a valid right-angled triangle
      */
     public static boolean isRightAngled(int a, int b, int c) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (a <= 0 || b <= 0 || c <= 0) {
+            return false;
+        }
+        if (a + b <= c || a + c <= b || b + c <= a) {
+            return false;
+        }
+        int max = Math.max(a, Math.max(b, c));
+        int sumOfSquares = a * a + b * b + c * c;
+        return sumOfSquares - max * max == max * max;
     }
 }
