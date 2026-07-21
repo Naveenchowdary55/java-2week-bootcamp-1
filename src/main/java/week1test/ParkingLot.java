@@ -17,6 +17,10 @@ package week1test;
  * Replace each `throw new UnsupportedOperationException(...)` with real code.
  */
 public class ParkingLot {
+    private String[] cars;
+    private int capacity;
+    private int count;
+     
 
     /**
      * A default lot with room for 10 cars.
@@ -26,7 +30,8 @@ public class ParkingLot {
      * chaining, and it is the point of this method.
      */
     public ParkingLot() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        this(10);
+        
     }
 
     /**
@@ -38,10 +43,26 @@ public class ParkingLot {
      * @throws IllegalArgumentException if capacity is less than 1
      */
     public ParkingLot(int capacity) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (capacity < 1) {
+            throw new IllegalArgumentException("Capacity must be at least 1");
+        }
+        this.capacity = capacity;
+        this.cars = new String[capacity];
+        this.count = 0;
     }
 
     /**
+     * Park a car.
+     *
+     * Number plates are matched IGNORING CASE — "ka01ab1234" and "KA01AB1234"
+     * are the same car. Store whatever the caller gave you; just compare
+     * case-insensitively.
+     *
+     * Return false (do not throw) when the car cannot be parked because:
+     *   - the lot is full, or
+     *   - that plate is already parked.
+     * Return true when the car was parked.
+     *
      * Park a car.
      *
      * Number plates are matched IGNORING CASE — "ka01ab1234" and "KA01AB1234"
@@ -62,7 +83,19 @@ public class ParkingLot {
      * @throws IllegalArgumentException if plate is null or blank
      */
     public boolean park(String plate) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (plate == null || plate.trim().isEmpty()) {
+            throw new IllegalArgumentException("Plate cannot be null or blank");
+        }
+        plate = plate.trim();
+        if (isParked(plate)) {
+            return false;
+        }
+        if (count >= capacity) {
+            return false;
+        }
+        cars[count] = plate;
+        count++;
+        return true;
     }
 
     /**
@@ -76,7 +109,20 @@ public class ParkingLot {
      * @throws IllegalArgumentException if plate is null or blank
      */
     public boolean leave(String plate) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (plate == null || plate.trim().isEmpty()) {
+            throw new IllegalArgumentException("Plate cannot be null or blank");
+        }
+        plate = plate.trim();
+        for (int i = 0; i < count; i++) {
+            if (cars[i].equalsIgnoreCase(plate)) {
+                for (int j = i; j < count - 1; j++) {
+                    cars[j] = cars[j + 1];
+                }
+                count--;
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -87,27 +133,36 @@ public class ParkingLot {
      * @throws IllegalArgumentException if plate is null or blank
      */
     public boolean isParked(String plate) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (plate == null || plate.trim().isEmpty()) {
+            throw new IllegalArgumentException("Plate cannot be null or blank");
+        }
+        plate = plate.trim();
+        for (int i = 0; i < count; i++) {
+            if (cars[i].equalsIgnoreCase(plate)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
      * @return how many cars are parked right now
      */
     public int occupied() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return count;
     }
 
     /**
      * @return how many spaces are still free right now
      */
     public int availableSpaces() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return capacity() - occupied();
     }
 
     /**
      * @return the total number of spaces this lot was built with
      */
     public int capacity() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return capacity;
     }
 }
