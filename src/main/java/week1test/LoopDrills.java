@@ -29,7 +29,15 @@ public class LoopDrills {
      * @return the sum of its digits, ignoring the sign
      */
     public static int digitSum(int n) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        n = Math.abs(n);
+        int sum = 0;
+
+        while (n > 0) {
+            sum += n % 10; 
+            n /= 10;      
+        }
+
+        return sum;
     }
 
     /**
@@ -52,7 +60,19 @@ public class LoopDrills {
      * @return true if the digits are a palindrome
      */
     public static boolean isPalindromeNumber(int n) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (n < 0) {
+            return false;
+        }
+        n = Math.abs(n);
+        int original = n;
+        int reversed = 0;
+
+        while (n > 0) {
+            reversed = reversed * 10 + n % 10;
+            n /= 10;
+        }
+
+        return original == reversed;
     }
 
     /**
@@ -77,6 +97,28 @@ public class LoopDrills {
      * @throws IllegalArgumentException if n is less than 1
      */
     public static String fizzBuzzLine(int n) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (n < 1) {
+            throw new IllegalArgumentException("n must be 1 or more");
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                result.append("FizzBuzz");
+            } else if (i % 3 == 0) {
+                result.append("Fizz");
+            } else if (i % 5 == 0) {
+                result.append("Buzz");
+            } else {
+                result.append(i);
+            }
+
+            if (i < n) {
+                result.append(" ");
+            }
+        }
+
+        return result.toString();
     }
 }
