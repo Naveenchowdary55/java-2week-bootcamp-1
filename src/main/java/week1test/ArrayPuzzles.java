@@ -35,8 +35,27 @@ public class ArrayPuzzles {
      * @throws IllegalArgumentException if k is negative
      */
     public static int[] rotateLeft(int[] arr, int k) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        
+    if (k < 0) {
+        throw new IllegalArgumentException("k cannot be negative");
     }
+
+    int n = arr.length;
+    int[] result = new int[n];
+
+    if (n == 0) {
+        return result;
+    }
+
+    k = k % n;
+
+    for (int i = 0; i < n; i++) {
+        result[i] = arr[(i + k) % n];
+    }
+
+    return result;
+}
+
 
     /**
      * Find the one missing number.
@@ -55,7 +74,19 @@ public class ArrayPuzzles {
      * @return the single value from 1..arr.length+1 that is absent
      */
     public static int missingNumber(int[] arr) {
-        throw new UnsupportedOperationException("TODO: implement me");
+          int n = arr.length + 1;
+
+    int expectedSum = n * (n + 1) / 2;
+    int actualSum = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+        actualSum += arr[i];
+    }
+
+    return expectedSum - actualSum;
+    
+        
+
     }
 
     /**
@@ -75,7 +106,27 @@ public class ArrayPuzzles {
      * @return the length of the longest adjacent equal run, 0 for an empty array
      */
     public static int longestRun(int[] arr) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (arr.length == 0) {
+        return 0;
+    }
+
+    int maxRun = 1;
+    int currentRun = 1;
+
+    for (int i = 1; i < arr.length; i++) {
+
+        if (arr[i] == arr[i - 1]) {
+            currentRun++;
+        } else {
+            currentRun = 1;
+        }
+
+        if (currentRun > maxRun) {
+            maxRun = currentRun;
+        }
+    }
+
+    return maxRun;
     }
 
     /**
@@ -97,6 +148,17 @@ public class ArrayPuzzles {
      * @return true if some two elements at different indexes sum to target
      */
     public static boolean hasPairWithSum(int[] arr, int target) {
-        throw new UnsupportedOperationException("TODO: implement me");
+           for (int i = 0; i < arr.length - 1; i++) {
+
+        for (int j = i + 1; j < arr.length; j++) {
+
+            if (arr[i] + arr[j] == target) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+    
     }
 }
