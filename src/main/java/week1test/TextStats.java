@@ -31,7 +31,21 @@ public class TextStats {
      * @throws IllegalArgumentException if s is null
      */
     public static int countVowels(String s) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (s == null) {
+            throw new IllegalArgumentException("Input string cannot be null");
+        }
+
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (vowels.indexOf(c) != -1) {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     /**
@@ -46,7 +60,18 @@ public class TextStats {
      * @throws IllegalArgumentException if s is null
      */
     public static String reverse(String s) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (s == null) {
+            throw new IllegalArgumentException("Input string cannot be null");
+        }
+
+        StringBuilder reversed = new StringBuilder();
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            reversed.append(s.charAt(i));
+        }
+
+        return reversed.toString();
+        
     }
 
     /**
@@ -71,6 +96,34 @@ public class TextStats {
      * @throws IllegalArgumentException if s is null
      */
     public static boolean isPalindrome(String s) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (s == null) {
+            throw new IllegalArgumentException("Input string cannot be null");
+        }
+
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            char leftChar = s.charAt(left);
+            char rightChar = s.charAt(right);
+
+            if (!Character.isLetterOrDigit(leftChar)) {
+                left++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(rightChar)) {
+                right--;
+                continue;
+            }
+
+            if (Character.toLowerCase(leftChar) != Character.toLowerCase(rightChar)) {
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
