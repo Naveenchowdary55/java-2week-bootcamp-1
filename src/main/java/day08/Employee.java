@@ -19,6 +19,9 @@ package day08;
  * </pre>
  */
 public class Employee {
+    private String name;
+    private int id;
+    private static int employeeCount = 1;
 
     /**
      * Creates an employee with the given name and assigns it the next unique id.
@@ -64,7 +67,7 @@ public class Employee {
      */
     public static int getEmployeeCount() {
         
-        return 0; // TODO: replace with the actual counter
+        return employeeCount;
     }
 
      
