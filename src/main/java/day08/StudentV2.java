@@ -20,6 +20,10 @@ package day08;
  * </pre>
  */
 public class StudentV2 {
+    private String name;
+    private int rollNo;
+    private int[] marks;
+    
 
     /**
      * Creates a student with no marks yet.
@@ -32,7 +36,8 @@ public class StudentV2 {
      * @param rollNo the student's roll number
      */
     public StudentV2(String name, int rollNo) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        this(name, rollNo, new int[0]);
+       
     }
 
     /**
@@ -43,27 +48,37 @@ public class StudentV2 {
      * @param marks  the student's marks (may be empty)
      */
     public StudentV2(String name, int rollNo, int[] marks) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        
+        this.name = name;
+        this.rollNo = rollNo;
+        this.marks = marks;
     }
 
     /**
      * @return the student's name
      */
     public String getName() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return name;
     }
 
     /**
      * @return the student's roll number
      */
     public int getRollNo() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return rollNo;
     }
 
     /**
      * @return the average of the marks, or 0.0 when there are no marks.
      */
     public double average() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (marks.length == 0) {
+            return 0.0;
+        }
+        int sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        return (double) sum / marks.length;
     }
 }

@@ -7,7 +7,7 @@ package day08;
  * {@link #deposit(double)} and {@link #withdraw(double)}. This is the whole
  * point of encapsulation: the object protects its own data and enforces the
  * rules.
- *
+ *        
  * <p>The account also tracks, with a <b>static</b> counter, how many accounts
  * have ever been created.
  *
@@ -19,6 +19,9 @@ package day08;
  * </pre>
  */
 public class BankAccountV2 {
+    private String owner;
+    private double balance;
+    private static int accountCount = 0;
 
     /**
      * Creates an account for an owner with an opening balance.
@@ -36,24 +39,60 @@ public class BankAccountV2 {
      * @param openingBalance the starting balance (must be >= 0)
      */
     public BankAccountV2(String owner, double openingBalance) {
-        throw new UnsupportedOperationException("TODO: implement me");
-    }
+        
+        if (openingBalance < 0) {
+            throw new IllegalArgumentException("Opening balance cannot be negative");
+        }
+        if (owner == null || owner.trim().isEmpty()) {
+            throw new IllegalArgumentException("Owner cannot be null or blank");
+        }
+
+        this.owner = owner;
+        this.balance = openingBalance;
+        accountCount++;
+
+
+      
+    }  
 
     /**
      * @return the account owner's name
      */
     public String getOwner() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return owner;
+
+
+        
     }
+
+
+    
 
     /**
      * Changes the owner's name.
      *
      * @param owner the new owner name; null or blank → throw {@link IllegalArgumentException}
      */
-    public void setOwner(String owner) {
-        throw new UnsupportedOperationException("TODO: implement me");
+    public void setOwner(String owner) {  
+        
+        if (owner == null || owner.trim().isEmpty()) {
+            throw new IllegalArgumentException("Owner cannot be null or blank");
+        }
+        this.owner = owner;
+        
     }
+
+
+
+
+        
+
+
+
+
+
+        
+    
 
     /**
      * @return the current balance.
@@ -63,7 +102,10 @@ public class BankAccountV2 {
      * rules are always enforced.
      */
     public double getBalance() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return balance;
+
+        
+    
     }
 
     /**
@@ -73,7 +115,16 @@ public class BankAccountV2 {
      * @return true and increases the balance if valid; false and no change otherwise
      */
     public boolean deposit(double amount) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (amount <= 0) {
+            return false;
+        }
+
+        balance += amount;
+        return true;
+
+
+
+        
     }
 
     /**
@@ -83,13 +134,25 @@ public class BankAccountV2 {
      * @return true and decreases the balance if valid; false and no change otherwise
      */
     public boolean withdraw(double amount) {
-        throw new UnsupportedOperationException("TODO: implement me");
+
+        
+        if (amount <= 0 || amount > balance) {
+            return false;
+        }
+
+        balance -= amount;
+        return true;
+      
     }
 
     /**
      * @return the total number of accounts ever successfully created.
      */
     public static int getAccountCount() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return accountCount;
+
+
+        
     }
+
 }

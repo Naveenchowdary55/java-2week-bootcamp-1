@@ -30,21 +30,30 @@ public class Employee {
      * @param name the employee's name
      */
     public Employee(String name) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        this.name = name;
+        this.id = employeeCount;
+        employeeCount++;
+
+        
+        
+
+        
+
+        
     }
 
     /**
      * @return this employee's unique id (assigned once, at construction time)
      */
     public int getId() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return id;
     }
 
     /**
      * @return this employee's name
      */
     public String getName() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return name;
     }
 
     /**
@@ -54,6 +63,9 @@ public class Employee {
      * any one employee, so it can only read static data (like your counter).
      */
     public static int getEmployeeCount() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        
+        return 0; // TODO: replace with the actual counter
     }
+
+     
 }
