@@ -53,7 +53,7 @@ public class BankAccountV2 {
 
 
       
-    }  
+    }
 
     /**
      * @return the account owner's name
