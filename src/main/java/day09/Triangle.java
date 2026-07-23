@@ -12,6 +12,10 @@ package day09;
  */
 public class Triangle extends Shape {
 
+    private double base;
+    private double height;
+
+
     /**
      * Creates a triangle with the given base and height.
      *
@@ -19,7 +23,12 @@ public class Triangle extends Shape {
      * @param height the triangle's height
      */
     public Triangle(double base, double height) {
-        throw new UnsupportedOperationException("TODO: implement me");
+     super();
+       this.base = base;
+        this.height = height;
+
+        
+
     }
 
     /**
@@ -27,6 +36,7 @@ public class Triangle extends Shape {
      */
     @Override
     public double area() {
-        throw new UnsupportedOperationException("TODO: implement me");
+         return 0.5 * base * height;
+        //throw new UnsupportedOperationException("TODO: implement me");
     }
 }
