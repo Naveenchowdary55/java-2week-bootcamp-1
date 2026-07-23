@@ -16,6 +16,7 @@ public class Car extends Vehicle {
      */
     @Override
     public String describe() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return "I am a car";
+        
     }
 }
