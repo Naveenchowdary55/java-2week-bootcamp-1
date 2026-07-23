@@ -11,6 +11,8 @@ package day09;
  * </pre>
  */
 public class Circle extends Shape {
+    private double radius;
+
 
     /**
      * Creates a circle with the given radius.
@@ -20,14 +22,19 @@ public class Circle extends Shape {
      * @param radius the circle's radius
      */
     public Circle(double radius) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        this.radius = radius;
     }
 
     /**
-     * @return π × radius² — use {@link Math#PI}
+     * @return the circle's radius
      */
-    @Override
-    public double area() {
-        throw new UnsupportedOperationException("TODO: implement me");
+    public double getRadius() {
+        return radius;
+    }
+         @Override
+        public double area() {
+        return Math.PI * radius * radius;
     }
 }
+
+ 
