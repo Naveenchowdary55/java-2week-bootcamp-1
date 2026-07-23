@@ -14,6 +14,8 @@ package day09;
  * </pre>
  */
 public class CurrentAccount extends Account {
+        private double overdraftLimit;
+      
 
     /**
      * Creates a current account with an overdraft limit.
@@ -26,7 +28,8 @@ public class CurrentAccount extends Account {
      */
     public CurrentAccount(double openingBalance, double overdraftLimit) {
         super(openingBalance);
-        throw new UnsupportedOperationException("TODO: implement me");
+        this.overdraftLimit = overdraftLimit;
+
     }
 
     /**
@@ -41,6 +44,13 @@ public class CurrentAccount extends Account {
      */
     @Override
     public boolean withdraw(double amount) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (amount <= 0) {
+            return false;
+        }
+        if (balance - amount < -overdraftLimit) {
+            return false;
+        }
+        balance -= amount;
+        return true;
     }
 }
