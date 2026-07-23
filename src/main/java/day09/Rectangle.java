@@ -11,6 +11,8 @@ package day09;
  * </pre>
  */
 public class Rectangle extends Shape {
+    private double width;
+    private double height;
 
     /**
      * Creates a rectangle with the given width and height.
@@ -19,7 +21,9 @@ public class Rectangle extends Shape {
      * @param height the rectangle's height
      */
     public Rectangle(double width, double height) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        super();
+        this.width = width;
+        this.height = height;
     }
 
     /**
@@ -27,6 +31,6 @@ public class Rectangle extends Shape {
      */
     @Override
     public double area() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return this.width * this.height;
     }
 }
