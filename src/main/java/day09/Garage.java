@@ -7,6 +7,7 @@ package day09;
  * and trucks you hand it.
  */
 public class Garage {
+    
 
     /**
      * Describes every vehicle in the array.
@@ -20,6 +21,10 @@ public class Garage {
      * @return a new array where element {@code i} is {@code vehicles[i].describe()}
      */
     public static String[] describeAll(Vehicle[] vehicles) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        String[] descriptions = new String[vehicles.length];
+        for (int i = 0; i < vehicles.length; i++) {
+            descriptions[i] = vehicles[i].describe();
+        }
+        return descriptions;
     }
 }
