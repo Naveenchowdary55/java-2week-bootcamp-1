@@ -6,12 +6,20 @@ package day09;
  * calling it returns exactly {@code "I am a truck"}.
  */
 public class Truck extends Vehicle {
+    
+
+
 
     /**
      * @return exactly {@code "I am a truck"}
      */
     @Override
     public String describe() {
-        throw new UnsupportedOperationException("TODO: implement me");
+    
+        return "I am a truck";
+
+
+
+        
     }
 }
