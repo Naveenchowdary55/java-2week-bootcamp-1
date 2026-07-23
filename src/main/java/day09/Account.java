@@ -11,18 +11,24 @@ package day09;
  * from subclasses).
  */
 public class Account {
+    
+
 
     /** Visible to subclasses so they can implement their own rules. */
     protected double balance;
+       
+
 
     /**
      * @param openingBalance the starting balance; negative → IllegalArgumentException
      */
     public Account(double openingBalance) {
         if (openingBalance < 0) {
-            throw new IllegalArgumentException("openingBalance must not be negative");
+            throw new IllegalArgumentException("Opening balance cannot be negative");
         }
         this.balance = openingBalance;
+        
+
     }
 
     /**
