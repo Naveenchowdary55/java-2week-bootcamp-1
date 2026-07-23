@@ -12,6 +12,8 @@ package day09;
  * </pre>
  */
 public class SavingsAccount extends Account {
+    private double balance;
+
 
     /**
      * Creates a savings account.
@@ -24,7 +26,7 @@ public class SavingsAccount extends Account {
      */
     public SavingsAccount(double openingBalance) {
         super(openingBalance);
-        throw new UnsupportedOperationException("TODO: implement me");
+
     }
 
     /**
@@ -34,6 +36,10 @@ public class SavingsAccount extends Account {
      *                    negative → throw {@link IllegalArgumentException}
      */
     public void addInterest(double ratePercent) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        if (ratePercent < 0) {
+            throw new IllegalArgumentException("Interest rate cannot be negative");
+        }
+        double interest = getBalance() * ratePercent / 100;
+        deposit(interest);
     }
 }
