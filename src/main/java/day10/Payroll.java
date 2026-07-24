@@ -17,6 +17,15 @@ public class Payroll {
      * @return the total pay across everyone
      */
     public static double totalPay(Payable[] people) {
-        throw new UnsupportedOperationException("TODO: implement me");
+           double total = 0.0;
+
+        for (int i = 0; i < people.length; i++) {
+            total += people[i].calculatePay();
+        }
+
+        return total;
+
+
+    
     }
 }
