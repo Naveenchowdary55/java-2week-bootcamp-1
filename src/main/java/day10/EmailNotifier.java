@@ -14,6 +14,7 @@ public class EmailNotifier implements Notifier {
      */
     @Override
     public String send(String message) {
-        throw new UnsupportedOperationException("TODO: implement me");
+         return "EMAIL: " + message;
+     
     }
 }
