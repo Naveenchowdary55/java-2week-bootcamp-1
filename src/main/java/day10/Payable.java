@@ -16,4 +16,19 @@ public interface Payable {
      * @return how much this person should be paid
      */
     double calculatePay();
+    public class Contractor implements Payable {
+
+    private double hoursWorked;
+    private double hourlyRate;
+
+    public Contractor(double hoursWorked, double hourlyRate) {
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
+    }
+
+    @Override
+    public double calculatePay() {
+        return hoursWorked * hourlyRate;
+    }
+}
 }
