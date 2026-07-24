@@ -9,12 +9,13 @@ package day10;
  */
 public class PushNotifier implements Notifier {
 
+
     /**
      * @param message the message to send
      * @return {@code "PUSH: " + message}
      */
     @Override
     public String send(String message) {
-        throw new UnsupportedOperationException("TODO: implement me");
+          return "PUSH: " + message;
     }
 }
