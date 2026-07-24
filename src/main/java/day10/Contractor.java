@@ -11,6 +11,10 @@ package day10;
  * </pre>
  */
 public class Contractor implements Payable {
+    
+    private double hoursWorked;
+    private double hourlyRate;
+
 
     /**
      * Creates a contractor.
@@ -19,7 +23,9 @@ public class Contractor implements Payable {
      * @param hourlyRate  pay per hour
      */
     public Contractor(double hoursWorked, double hourlyRate) {
-        throw new UnsupportedOperationException("TODO: implement me");
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
+        
     }
 
     /**
@@ -27,6 +33,8 @@ public class Contractor implements Payable {
      */
     @Override
     public double calculatePay() {
-        throw new UnsupportedOperationException("TODO: implement me");
+        return hoursWorked * hourlyRate;
+        
+        
     }
 }
