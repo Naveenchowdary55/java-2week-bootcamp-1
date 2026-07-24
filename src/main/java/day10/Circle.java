@@ -8,6 +8,8 @@ package day10;
  * <p>Its area is π × radius².
  */
 public class Circle extends Shape {
+     private double radius;
+
 
     /**
      * Creates a circle with the given radius.
@@ -15,7 +17,10 @@ public class Circle extends Shape {
      * @param radius the circle's radius
      */
     public Circle(double radius) {
-        throw new UnsupportedOperationException("TODO: implement me");
+         this.radius = radius;
+
+
+        
     }
 
     /**
@@ -23,6 +28,8 @@ public class Circle extends Shape {
      */
     @Override
     public double area() {
-        throw new UnsupportedOperationException("TODO: implement me");
+         return Math.PI * radius * radius;
+
+       
     }
 }

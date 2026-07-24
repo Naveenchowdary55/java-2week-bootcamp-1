@@ -19,6 +19,17 @@ public class AlertService {
      * @return a new array where element {@code i} is {@code notifiers[i].send(message)}
      */
     public static String[] alertAll(Notifier[] notifiers, String message) {
-        throw new UnsupportedOperationException("TODO: implement me");
+           String[] results = new String[notifiers.length];
+
+        for (int i = 0; i < notifiers.length; i++) {
+            results[i] = notifiers[i].send(message);
+        }
+
+        return results;
     }
 }
+
+
+        
+    
+
